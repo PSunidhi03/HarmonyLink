@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Include FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+</head>
+<body>
+<header>
+        <h1>Harmony Link</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+              <li><a href="index.html">Home</a></li>
+             <li><a href="about.html">About Us</a></li> 
+             <li><a href="connect.html">Connect</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#engage">Engage</a></li>
+            <li><a href="calender.html">Calendar</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="#resources">Resources</a></li>
+            
+        </ul>
+    </nav>
+<!-- Your existing content -->
+
+<!-- Calendar Section -->
+<section>
+    <h2>Event Calendar</h2>
+    <div id="calendar"></div>
+</section>
+
+<!-- Your existing content -->
+
+<!-- Include script to initialize FullCalendar -->
+<script>
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            events: [
+                {
+                    title: 'Care Home Event 1',
+                    start: '2024-01-01',
+                    end: '2024-01-03',
+                    description: 'Details about Care Home Event 1'
+                },
+                {
+                    title: 'Care Home Event 2',
+                    start: '2024-01-05',
+                    end: '2024-01-07',
+                    description: 'Details about Care Home Event 2'
+                },
+                {
+                    title: 'Care Home Event 3',
+                    start: '2024-01-10',
+                    end: '2024-01-12',
+                    description: 'Details about Care Home Event 3'
+                },
+                // Add more events as needed
+            ],
+            eventRender: function (event, element) {
+                element.attr('title', event.description);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
