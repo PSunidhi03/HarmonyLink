@@ -114,3 +114,75 @@ function findNearbyCareHomes(location) {
             `;
             skillListingsContainer.appendChild(listingElement);
         });
+
+// Add this code to your existing main.js or create a new JavaScript file
+
+// Sample data for story clips (you can replace this with dynamic data from your backend)
+const storyClipsData = [
+    { image: 'sample_image1.jpg', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'sample_image2.jpg', text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    // Add more story clips as needed
+];
+
+// Function to populate story clips
+function populateStoryClips() {
+    const storyClipContainer = document.getElementById('storyClipContainer');
+
+    storyClipsData.forEach(clipData => {
+        const storyClip = document.createElement('div');
+        storyClip.className = 'story-clip';
+
+        const image = document.createElement('img');
+        image.src = clipData.image;
+        image.alt = 'Story Image';
+
+        const storyText = document.createElement('p');
+        storyText.className = 'story-text';
+        storyText.textContent = clipData.text;
+
+        const interactions = document.createElement('div');
+        interactions.className = 'interactions';
+
+        const likeButton = document.createElement('button');
+        likeButton.className = 'like-button';
+        likeButton.textContent = 'Like';
+        likeButton.addEventListener('click', function () {
+            likeStory(this);
+        });
+
+        const shareButton = document.createElement('button');
+        shareButton.className = 'share-button';
+        shareButton.textContent = 'Share';
+        shareButton.addEventListener('click', function () {
+            shareStory(this);
+        });
+
+        interactions.appendChild(likeButton);
+        interactions.appendChild(shareButton);
+
+        storyClip.appendChild(image);
+        storyClip.appendChild(storyText);
+        storyClip.appendChild(interactions);
+
+        storyClipContainer.appendChild(storyClip);
+    });
+}
+
+// Sample function for liking a story (you can replace this with your actual backend logic)
+function likeStory(button) {
+    const storyClip = button.closest('.story-clip');
+    // Implement the like functionality (e.g., updating likes count in the backend)
+    alert('Liked!'); // Replace this with your actual logic
+}
+
+// Sample function for sharing a story (you can replace this with your actual backend logic)
+function shareStory(button) {
+    const storyClip = button.closest('.story-clip');
+    // Implement the share functionality (e.g., sharing the story link)
+    alert('Shared!'); // Replace this with your actual logic
+}
+
+// Call the function to populate story clips when the page is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    populateStoryClips();
+});
