@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Hub</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Donation and Support Hub</h1>
+    </header>
+
+    <section>
+        <h2>Donation Hub</h2>
+        <form action="/submit_donation_form" method="post">
+            <label for="foodDonation">Integration with local restaurants for food donations:</label>
+            <input type="checkbox" id="foodDonation" name="foodDonation">
+
+            <label for="clothingDonation">Collection points for clothing and other material donations:</label>
+            <input type="checkbox" id="clothingDonation" name="clothingDonation">
+
+            <button type="submit">Enroll for Donation</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Financial Assistance</h2>
+        <form action="/submit_financial_assistance_form" method="post">
+            <label for="legalInfo">Resources and information on legal and financial matters for care homes:</label>
+            <textarea id="legalInfo" name="legalInfo" rows="4" cols="50"></textarea>
+
+            <label for="webinars">Collaboration with professionals for advice or webinars:</label>
+            <input type="checkbox" id="webinars" name="webinars">
+
+            <button type="submit">Enroll for Financial Assistance</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Engage</h2>
+        <form action="/submit_engage_form" method="post">
+            <label for="healthPrograms">Health and Wellness Programs:</label>
+            <input type="text" id="healthPrograms" name="healthPrograms">
+
+            <label for="storytelling">Interactive Storytelling:</label>
+            <textarea id="storytelling" name="storytelling" rows="4" cols="50"></textarea>
+
+            <button type="submit">Enroll for Engagement</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Support Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
