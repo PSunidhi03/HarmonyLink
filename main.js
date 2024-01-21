@@ -1,5 +1,51 @@
 // main.js
+document.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
 
+        // Customize these values based on your design preferences
+        const colorChangeStart = 0;
+        const colorChangeEnd = 500;
+
+        // Change background color based on scroll position
+        if (scrollPosition > colorChangeStart && scrollPosition < colorChangeEnd) {
+            const percentage = (scrollPosition - colorChangeStart) / (colorChangeEnd - colorChangeStart);
+            const newColor = blendColors('#87CEEB', '#CCCCFF', percentage);
+            document.body.style.backgroundColor = newColor;
+        }
+    });
+
+    // Helper function to blend two colors
+    function blendColors(color1, color2, percentage) {
+        const componentToHex = c => {
+            const hex = c.toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+        };
+
+        const hex = (color1, color2, percentage) => {
+            const blended = Math.round(color1 + (color2 - color1) * percentage);
+            return componentToHex(blended);
+        };
+
+        return `#${hex(parseInt(color1.slice(1, 3), 16), parseInt(color2.slice(1, 3), 16), percentage)}${hex(parseInt(color1.slice(3, 5), 16), parseInt(color2.slice(3, 5), 16), percentage)}${hex(parseInt(color1.slice(5, 7), 16), parseInt(color2.slice(5, 7), 16), percentage)}`;
+    }
+
+        // JavaScript for fade-in animations
+        document.addEventListener('scroll', function () {
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                const isVisible = sectionTop < window.scrollY + window.innerHeight && sectionTop + sectionHeight > window.scrollY;
+
+                if (isVisible) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+
+//location part
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for form submission
     document.getElementById('locationForm').addEventListener('submit', function (event) {

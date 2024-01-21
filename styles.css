@@ -17,6 +17,7 @@ header {
     text-align: center;
 }
 
+
 header h1 {
     margin: 0;
     color: #001F3F;
@@ -50,7 +51,10 @@ nav a {
 nav a:hover {
     color: #87CEEB;
 }
-
+nav a.active {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+        }
 /* Main Section Styles */
 section {
     padding: 20px;
@@ -66,7 +70,42 @@ section p {
     color: #008080;
     font-size: 1em;
 }
+ section:hover {
+            background-color: #CCCCFF; /* Kindness periwinkle background on hover */
+            transform: scale(1.02);
+        }
 
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2em;
+        }
+
+        .service-card {
+            width: 45%;
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        .service-card h2 {
+            color: #008080; /* Empathy teal heading color */
+        }
+.donate-food {
+            background-color: #00CED1; /* Tranquil turquoise background for the new section */
+        }
+
+        .donate-food h2 {
+            color: #0047AB; /* Compassionate cobalt heading color for the new section */
+        }
+
+        .donate-food p {
+            color: #001F3F; /* Deep navy text color for the new section */
+        }
 /* Footer Styles */
 footer {
     background-color: #CCCCFF;
