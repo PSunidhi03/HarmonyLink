@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration/Login Form</title>
+    <link rel="stylesheet" href="../static/css/form.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2 id="form-title">User Registration</h2>
+
+    <div class="toggle-container">
+        <label for="toggle">Already have an account? Toggle to Login:</label>
+        <input type="checkbox" id="toggle" onclick="toggleForm()">
+    </div>
+
+    <form id="registration-form" action="process_registration.php" method="post">
+        <!-- Registration Form Fields -->
+        <label for="user_mail">Email:</label>
+        <input type="email" id="user_mail" name="user_mail" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea><br>
+
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <form id="login-form" action="process_login.php" method="post">
+        <!-- Login Form Fields -->
+        <label for="login_user">Username/Email:</label>
+        <input type="text" id="login_user" name="login_user" required><br>
+
+        <label for="login_password">Password:</label>
+        <input type="password" id="login_password" name="login_password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+    function toggleForm() {
+        var registrationForm = document.getElementById("registration-form");
+        var loginForm = document.getElementById("login-form");
+        var formTitle = document.getElementById("form-title");
+
+        if (document.getElementById("toggle").checked) {
+            registrationForm.style.display = "none";
+            loginForm.style.display = "block";
+            formTitle.innerText = "User Login";
+        } else {
+            registrationForm.style.display = "block";
+            loginForm.style.display = "none";
+            formTitle.innerText = "User Registration";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -247,7 +247,7 @@ footer {
 
 /* Social Media Section Styles */
 .social-media-section {
-    background-color: #E0ECF8;
+    background-color:  #87CEEB;
     border: 1px solid #ccc;
     padding: 20px;
     margin-top: 20px;
@@ -260,7 +260,7 @@ footer {
 
 .story-clip {
     width: 300px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
