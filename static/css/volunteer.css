@@ -1,0 +1,198 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #AEDFF7;
+    padding: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0047AB;
+    font-weight: bold;
+}
+body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        .donation-form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+.connect-section {
+    background: #0047AB;
+    padding: 30px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.connect-section h2 {
+    color: #0047AB;
+    text-align: center;
+}
+
+.directory-section,
+.skill-sharing-section,
+.remote-volunteering-section {
+    background-color: #AEDFF7;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.directory-section h3,
+.skill-sharing-section h3,
+.remote-volunteering-section h3 {
+    color: #0047AB;
+}
+
+.directory-option,
+.directory-option form,
+.skill-sharing-section > div,
+.remote-volunteering-section {
+    margin-top: 20px;
+}
+
+.directory-option h4,
+.skill-sharing-section > div > label,
+.remote-volunteering-section h3 {
+    color: #0047AB;
+}
+
+.directory-option p,
+.skill-sharing-section p {
+    color: #333;
+}
+
+.directory-option button,
+.skill-sharing-section button,
+.remote-volunteering-section button {
+    background-color: #0047AB;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.directory-option button:hover,
+.skill-sharing-section button:hover,
+.remote-volunteering-section button:hover {
+    background-color: #00274d;
+}
+
+label,
+input[type="text"],
+select {
+    display: block;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+select,
+input[type="text"],
+input[type="submit"],
+button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #0047AB;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="submit"],
+button {
+    background-color: #0047AB;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #00274d;
+}
+
+/* Adjustments for better responsiveness (optional) */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

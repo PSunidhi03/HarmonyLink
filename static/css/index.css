@@ -1,0 +1,225 @@
+/* Add the provided color palette */
+:root {
+    --white: #e1d9ff;
+    --dark-purple: #2b1444;
+    --train-purple: #572b83;
+    --train-window: #d4aa71;
+    --shooting-star-purple: #502b8c;
+    --light-pink: #b65b8d;
+    --dark-pink: #863c82;
+    --dono-ka-sar: #9c6bc3;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-purple);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--train-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: zoomIn 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-style: italic;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--train-window);
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 1.5rem; /* Adjust the margin for spacing between elements */
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-purple);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--shooting-star-purple);
+}
+
+nav li:hover {
+    transform: scale(1.1);
+}
+
+/* Improved animations for the navigation bar */
+
+
+/* Main Content Styles */section {
+    padding: 2rem;
+    background-color: var(--white); /* Set a background color for the section */
+}
+
+section h2 {
+    color: var(--train-purple);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+section p {
+    color: var(--dark-purple);
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Services Section Styles */
+#services {
+    background-color: var(--light-pink);
+    text-align: center;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Align items to stretch vertically */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.service-card {
+    background-color: var(--dark-pink);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    flex: 1; /* Distribute space evenly among the items */
+    max-width: 300px; /* Limit the maximum width to maintain responsiveness */
+    box-sizing: border-box; /* Include padding and border in the box sizing */
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.service-card h2 {
+    color: var(--white);
+    margin-top: 1rem;
+}
+
+.service-card p {
+    color: var(--white);
+}
+
+
+/* Volunteer, Partners, and Contact Section Styles (Unique Styling) */
+/* Volunteer, Partners, and Contact Section Styles */
+#volunteer, #partners, #contact {
+    background-color: var(--shooting-star-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+#volunteer h2,
+#partners h2,
+#contact h2 {
+    color: var(--train-window); /* Use --train-purple for the headings */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#volunteer p,
+#partners p,
+#contact p {
+    color: var(--white);
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+#volunteer .cta-button,
+#partners .cta-button,
+#contact .cta-button {
+    background-color: var(--dark-purple);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#volunteer .cta-button:hover,
+#partners .cta-button:hover,
+#contact .cta-button:hover {
+    background-color: var(--train-window);
+    color: #2b1444;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: var(--train-window);
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: var(--dark-purple);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

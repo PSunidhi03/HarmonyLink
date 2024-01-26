@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Hub</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/donate.css">
 </head>
 <body>
 
@@ -12,18 +12,26 @@
         <h1>Donation and Support Hub</h1>
     </header>
 
-    <section>
-        <h2>Donation Hub</h2>
-        <form action="/submit_donation_form" method="post">
-            <label for="foodDonation">Integration with local restaurants for food donations:</label>
-            <input type="checkbox" id="foodDonation" name="foodDonation">
+    <div class="donation-form">
+        <h2>Monetary Donation</h2>
+        <form id="donationForm" action="your_payment_processing_endpoint" method="POST">
+            <label for="amount">Select Donation Amount:</label>
+            <select id="amount" name="amount">
+                <option value="10">$10</option>
+                <option value="20">$20</option>
+                <option value="50">$50</option>
+                <option value="custom">Custom Amount</option>
+            </select>
 
-            <label for="clothingDonation">Collection points for clothing and other material donations:</label>
-            <input type="checkbox" id="clothingDonation" name="clothingDonation">
+            <div id="customAmountDiv" style="display: none;">
+                <label for="customAmount">Enter Custom Amount:</label>
+                <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount">
+            </div>
 
-            <button type="submit">Enroll for Donation</button>
+            <button type="submit">Donate Now</button>
         </form>
-    </section>
+    </div>
+
 
     <section>
         <h2>Financial Assistance</h2>
@@ -50,7 +58,16 @@
             <button type="submit">Enroll for Engagement</button>
         </form>
     </section>
-
+<script>
+        document.getElementById('amount').addEventListener('change', function () {
+            var customAmountDiv = document.getElementById('customAmountDiv');
+            if (this.value === 'custom') {
+                customAmountDiv.style.display = 'block';
+            } else {
+                customAmountDiv.style.display = 'none';
+            }
+        });
+    </script>
     <footer>
         <p>&copy; 2024 Support Hub. All rights reserved.</p>
     </footer>
