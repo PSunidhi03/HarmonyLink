@@ -1,38 +1,62 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect, url_for
+import mysql.connector
 
-app = Flask(__name__) ##
+app = Flask(__name__)
 
-# Configure PostgreSQL database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://your_username:your_password@localhost/your_database'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# MySQL Configuration
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'moon'
+app.config['MYSQL_PASSWORD'] = 'moon'
+app.config['MYSQL_DB'] = 'harmonylink'
 
-db = SQLAlchemy(app)
+mysql = mysql.connector.connect(
+    host=app.config['MYSQL_HOST'],
+    user=app.config['MYSQL_USER'],
+    password=app.config['MYSQL_PASSWORD'],
+    database=app.config['MYSQL_DB']
+)
 
-# Your models go here
 
-# Sample model (modify as needed)
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-
-# Routes
 @app.route('/')
-def home():
+def index():
+    # Sample query to fetch data from a table
     return render_template('index.html')
 
-@app.route('/feedback')
-def feedback():
-    return render_template('feedback.html')
 
-@app.route('/connect')
-def connect():
-    return render_template('connect.html')
 
-@app.route('/calendar')
-def calendar():
-    return render_template('calendar.html')
+#=============== REGISTRATION ==========================
+
+
+def add_user_to_database(username, email, password, confirm_password, address, contact):
+    if password != confirm_password:
+        return False, "Password and Confirm Password do not match"
+
+    user_data = (username, email, password, address, contact)
+    insert_query = "INSERT INTO users (username, email, password, address, contact) VALUES (%s, %s, %s, %s, %s)"
+
+    cursor = mysql.cursor()
+    cursor.execute(insert_query, user_data)
+    mysql.commit()
+
+    return True, None
+
+@app.route('/register', methods=['POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        address = request.form['address']
+        contact = request.form['contact']
+
+        success, error_message = add_user_to_database(username, email, password, confirm_password, address, contact)
+
+        return render_template('result.html', success=success, error_message=error_message)
+
+
+#=============== REGISTRATION ==========================
+
 
 if __name__ == '__main__':
     app.run(debug=True)
