@@ -1,89 +1,152 @@
+/* Color Palette */
+:root {
+    --white: #e1d9ff;
+    --dark-purple: #2b1444;
+    --train-purple: #572b83;
+    --train-window: #d4aa71;
+    --shooting-star-purple: #502b8c;
+    --light-pink: #b65b8d;
+    --dark-pink: #863c82;
+    --dono-ka-sar: #9c6bc3;
+}
+
+/* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #AEDFF7;
+    box-sizing: border-box;
+    background-color: var(--white);
+    color: var(--dark-purple);
 }
 
-header {
-    background-color: #AEDFF7;
-    padding: 20px;
+/* Navigation Styles */
+nav {
+    background-color: var(--train-window);
+    padding: 1rem;
     text-align: center;
 }
 
-header h1 {
-    color: #0047AB;
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-section {
-    background-color: #AEDFF7;
-    padding: 30px;
-    margin-top: 20px;
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-purple);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--shooting-star-purple);
+}
+
+/* Connect Page Sections Styles */
+.connect-section {
+    padding: 2rem;
+}
+
+.connect-section h2 {
+    color: var(--shooting-star-purple);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Care Homes Directory Section Styles */
+.directory-section {
+    background-color: var(--train-purple);
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    margin-top: 1.5rem;
 }
 
-h2 {
-    color: #0047AB;
-    text-align: center;
-    margin-bottom: 20px;
+.directory-section h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-form {
-    display: grid;
-    gap: 15px;
+.directory-option {
+    background-color: var(--dark-purple);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
 }
 
-label {
-    color: #0047AB;
+.directory-option h4 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
-input[type="checkbox"],
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #0047AB;
-    border-radius: 5px;
+.directory-option p {
+    color: var(--white);
+    font-size: 1rem;
 }
 
-button {
-    background-color: #0047AB;
-    color: #fff;
-    padding: 12px;
+.directory-option button {
+    background-color: var(--shooting-star-purple);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
-    background-color: #00274d;
+.directory-option button:hover {
+    background-color: var(--train-purple);
 }
 
-footer {
-    background-color: #AEDFF7;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* Skill Sharing Section Styles */
+.skill-sharing-section {
+    background-color: var(--dark-pink);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
 }
 
-footer p {
-    color: #0047AB;
+.skill-sharing-section h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.skill-sharing-section p {
+    color: var(--white);
+    font-size: 1rem;
 }
+
+.skill-sharing-section select,
+.skill-sharing-section input,
+.skill-sharing-section button {
+    margin-top: 1rem;
+}
+
+/* Remote Volunteering Section Styles */
+.remote-volunteering-section {
+    background-color: var(--train-purple);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
+}
+
+.remote-volunteering-section h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
