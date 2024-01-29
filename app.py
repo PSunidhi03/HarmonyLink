@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+
 import mysql.connector
 
 app = Flask(__name__)
@@ -80,6 +81,58 @@ def register():
 
 
 #=============== REGISTRATION ==========================
+
+
+#=============== LOGIN ==========================
+
+app.secret_key = 'your_secret_key'  # Change this to a secret and unique value
+
+
+def authenticate_user(username, password):
+    # This function should check if the username and password match in the database
+    # You may need to query your database and compare the stored hash of the password
+    # with the hash of the entered password
+    # If the authentication is successful, return True; otherwise, return False
+    # Example:
+    cursor = mysql.cursor()
+    cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username, password))
+    user = cursor.fetchone()
+    if user:
+        return True
+    else:
+        return False
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if authenticate_user(username, password):
+            # If authentication is successful, store the user in the session
+            session['username'] = username
+            return redirect(url_for('index'))
+        else:
+            error_message = "Invalid username or password"
+            return render_template('login', error_message=error_message)
+
+    return render_template('login.html')
+
+@app.route('/dashboard')
+def dashboard():
+    # Check if the user is logged in before accessing the dashboard
+    if 'username' in session:
+        username = session['username']
+        return render_template('dashboard.html', username=username)
+    else:
+        return redirect(url_for('login'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+#=============== LOGIN ==========================
 
 
 if __name__ == '__main__':
