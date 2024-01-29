@@ -17,13 +17,13 @@
         <input type="checkbox" id="toggle" onclick="toggleForm()">
     </div>
 
-    <form id="registration-form" action="process_registration.php" method="post">
+    <form id="registration-form" action="{{ url_for('register') }}" method="post">
         <!-- Registration Form Fields -->
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
 
-        <label for="user_mail">Email:</label>
-        <input type="email" id="user_mail" name="user_mail" required><br>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" required><br>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>

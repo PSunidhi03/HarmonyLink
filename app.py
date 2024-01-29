@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'moon'
-app.config['MYSQL_PASSWORD'] = 'moon'
+app.config['MYSQL_USER'] = 'orange'
+app.config['MYSQL_PASSWORD'] = 'orange'
 app.config['MYSQL_DB'] = 'harmonylink'
 
 mysql = mysql.connector.connect(
@@ -21,6 +21,16 @@ mysql = mysql.connector.connect(
 def index():
     # Sample query to fetch data from a table
     return render_template('index.html')
+
+@app.route('/volunteer.html')
+def volunteer():
+    # Sample query to fetch data from a table
+    return render_template('volunteer.html')
+
+@app.route('/register_login')
+def register_login():
+    # Sample query to fetch data from a table
+    return render_template('user reg form.html')
 
 
 
@@ -45,10 +55,10 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
-        address = request.form['address']
-        contact = request.form['contact']
+        password = str(request.form['password'])
+        confirm_password = str(request.form['confirm_password'])
+        address = str(request.form['address'])
+        contact = str(request.form['contact'])
 
         success, error_message = add_user_to_database(username, email, password, confirm_password, address, contact)
 
