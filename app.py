@@ -16,6 +16,8 @@ mysql = mysql.connector.connect(
     database=app.config['MYSQL_DB']
 )
 
+#=============== ROUTES ==========================
+
 
 @app.route('/')
 def index():
@@ -27,10 +29,22 @@ def volunteer():
     # Sample query to fetch data from a table
     return render_template('volunteer.html')
 
+@app.route('/donate.html')
+def donate():
+    # Sample query to fetch data from a table
+    return render_template('donate.html')
+
+@app.route('/calendar.html')
+def calendar():
+    # Sample query to fetch data from a table
+    return render_template('calendar.html')
+
 @app.route('/register_login')
 def register_login():
     # Sample query to fetch data from a table
     return render_template('user reg form.html')
+
+#=============== ROUTES ==========================
 
 
 
@@ -62,7 +76,7 @@ def register():
 
         success, error_message = add_user_to_database(username, email, password, confirm_password, address, contact)
 
-        return render_template('result.html', success=success, error_message=error_message)
+        return render_template('index.html', success=success, error_message=error_message)
 
 
 #=============== REGISTRATION ==========================
