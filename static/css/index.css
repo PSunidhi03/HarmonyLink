@@ -44,7 +44,6 @@ nav {
     background-color: var(--train-window);
     padding: 1rem;
     text-align: center;
-    transition: background-color 0.3s ease-in-out;
 }
 
 nav ul {
@@ -55,8 +54,7 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-right: 1.5rem; /* Adjust the margin for spacing between elements */
-    transition: transform 0.3s ease-in-out;
+    margin-right: 1rem;
 }
 
 nav a {
@@ -71,26 +69,19 @@ nav a:hover {
     color: var(--shooting-star-purple);
 }
 
-nav li:hover {
-    transform: scale(1.1);
-}
-
-/* Improved animations for the navigation bar */
-
-
-/* Main Content Styles */section {
+/* Main Content Styles */
+section {
     padding: 2rem;
-    background-color: var(--white); /* Set a background color for the section */
 }
 
 section h2 {
     color: var(--train-purple);
     font-size: 2rem;
     margin-bottom: 1rem;
+    animation: zoomIn 1s ease-in-out;
 }
 
 section p {
-    color: var(--dark-purple);
     font-size: 1.2rem;
     line-height: 1.5;
 }
@@ -190,7 +181,7 @@ section p {
 footer {
     background-color: var(--train-window);
     text-align: center;
-    padding: 1rem;
+    padding: 0.1rem;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -198,7 +189,7 @@ footer {
 
 footer p {
     color: var(--dark-purple);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* Animations */

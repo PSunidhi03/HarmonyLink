@@ -34,29 +34,96 @@
 
 
     <section>
-        <h2>Financial Assistance</h2>
-        <form action="/submit_financial_assistance_form" method="post">
-            <label for="legalInfo">Resources and information on legal and financial matters for care homes:</label>
-            <textarea id="legalInfo" name="legalInfo" rows="4" cols="50"></textarea>
+        <h2>Share the Bounty: Hotel and Event Food Donations with Quality Check</h2>
+        <form id="foodDonationForm">
+    <label for="donationType">Donation Type:</label>
+    <label>
+        <input type="radio" name="donationType" value="hotel" checked> Hotel
+    </label>
+    <label>
+        <input type="radio" name="donationType" value="event"> Event
+    </label><br>
 
-            <label for="webinars">Collaboration with professionals for advice or webinars:</label>
-            <input type="checkbox" id="webinars" name="webinars">
+    <label for="hotelName">Hotel Name:</label>
+    <input type="text" id="hotelName" name="hotelName" required><br>
 
-            <button type="submit">Enroll for Financial Assistance</button>
-        </form>
+    <label for="foodDescription">Food Description:</label>
+    <textarea id="foodDescription" name="foodDescription" rows="4" required></textarea><br>
+
+    <label for="quantity">Quantity (in servings):</label>
+    <input type="number" id="quantity" name="quantity" required><br>
+
+    <label for="pickupTime">Preferred Pickup Time:</label>
+    <input type="datetime-local" id="pickupTime" name="pickupTime" required><br>
+
+     <label for="qualityCheck">Quality Check:</label>
+    <select id="qualityCheck" name="qualityCheck">
+        <option value="excellent">Excellent</option>
+        <option value="good">Good</option>
+        <option value="average">Average</option>
+        <option value="belowAverage">Below Average</option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
     </section>
 
     <section>
-        <h2>Engage</h2>
-        <form action="/submit_engage_form" method="post">
-            <label for="healthPrograms">Health and Wellness Programs:</label>
-            <input type="text" id="healthPrograms" name="healthPrograms">
+        <h2>Threads of Compassion: Empower Through Textile Donation</h2>
+        <form id="textileDonationForm">
 
-            <label for="storytelling">Interactive Storytelling:</label>
-            <textarea id="storytelling" name="storytelling" rows="4" cols="50"></textarea>
+    <label for="textileDescription">Textile Description:</label>
+    <textarea id="textileDescription" name="textileDescription" rows="4" required></textarea><br>
 
-            <button type="submit">Enroll for Engagement</button>
-        </form>
+    <label for="quantity">Quantity (in items):</label>
+    <input type="number" id="quantity" name="quantity" required><br>
+
+    <label for="pickupTime">Preferred Pickup Time:</label>
+    <input type="datetime-local" id="pickupTime" name="pickupTime" required><br>
+
+    <label for="condition">Condition:</label>
+    <select id="condition" name="condition">
+        <option value="new">New</option>
+        <option value="gentlyUsed">Gently Used</option>
+        <option value="worn">Worn</option>
+    </select><br>
+
+    <label for="cleaningRequired">Cleaning Required:</label>
+    <input type="checkbox" id="cleaningRequired" name="cleaningRequired"><br>
+
+    <label for="localVendor">Are you a Local Vendor?</label>
+    <input type="checkbox" id="localVendor" name="localVendor"><br>
+
+    <!-- Additional fields for Local Vendors -->
+    <div id="localVendorDetails" style="display: none;">
+        <label for="businessName">Business Name:</label>
+        <input type="text" id="businessName" name="businessName"><br>
+
+        <label for="businessAddress">Business Address:</label>
+        <input type="text" id="businessAddress" name="businessAddress"><br>
+    </div>
+
+    <label for="ageGroup">Age Group:</label>
+    <select id="ageGroup" name="ageGroup">
+        <option value="infant">Infant</option>
+        <option value="child">Child</option>
+        <option value="teen">Teen</option>
+        <option value="adult">Adult</option>
+        <option value="senior">Senior</option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script src="script.js"></script>
+
+<script>
+    // Show/hide local vendor details based on checkbox selection
+    document.getElementById("localVendor").addEventListener("change", function () {
+        var localVendorDetails = document.getElementById("localVendorDetails");
+        localVendorDetails.style.display = this.checked ? "block" : "none";
+    });
+</script>
     </section>
 <script>
         document.getElementById('amount').addEventListener('change', function () {
