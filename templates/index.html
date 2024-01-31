@@ -17,7 +17,18 @@
         <div id="user" style="position: absolute; top: 2rem; right: 0; transform: translateY(-50%);">
         {% if isLoggedIn %}
             <i class="fas fa-user" style="font-size: 24px; color: #fff; margin-right: 10px; position: relative;"></i><br>
+            <span style="margin-right: 10px;"> {{username }}</span> <br>
         {% endif %}
+
+        {% if not isLoggedIn %}
+        <button onclick="redirectToRegister()">Register</button>
+        {% endif %}
+        
+        <script>
+            function redirectToRegister() {
+                window.location.href = "/register_login";
+            }
+        </script>
     </div>
     </header>
 

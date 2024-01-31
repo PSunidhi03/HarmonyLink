@@ -40,6 +40,21 @@ header p {
     animation: fadeInUp 1s ease-in-out;
 }
 
+button {
+            margin-right: 7px;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff; /* Text color */
+            background-color: #cdac79; /* Background color */
+            border: 1px solid #cdac79; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+
 
 /* Navigation Styles */
 nav {

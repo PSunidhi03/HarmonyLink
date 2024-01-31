@@ -6,7 +6,7 @@ import mysql.connector
 app = Flask(__name__)
 
 isLoggedIn = False
-username = '';
+g_username = '';
 
 
 # MySQL Configuration
@@ -28,7 +28,7 @@ mysql = mysql.connector.connect(
 @app.route('/')
 def index():
     # Sample query to fetch data from a table
-    return render_template('index.html', isLoggedIn=isLoggedIn)
+    return render_template('index.html', isLoggedIn=isLoggedIn, username=g_username)
 
 @app.route('/volunteer.html')
 def volunteer():
