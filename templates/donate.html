@@ -13,7 +13,7 @@
     </header>
 
     <div class="donation-form">
-        <h2>Monetary Donation</h2>
+        <h2 onclick="toggleForm('donationForm')">Monetary Donation</h2>
         <form id="donationForm" action="your_payment_processing_endpoint" method="POST">
             <label for="amount">Select Donation Amount:</label>
             <select id="amount" name="amount">
@@ -69,7 +69,7 @@
     </section>
 
     <section>
-        <h2>Threads of Compassion: Empower Through Textile Donation</h2>
+        <h2 >Threads of Compassion: Empower Through Textile Donation</h2>
         <form id="textileDonationForm">
 
     <label for="textileDescription">Textile Description:</label>
@@ -118,23 +118,121 @@
 <script src="script.js"></script>
 
 <script>
-    // Show/hide local vendor details based on checkbox selection
-    document.getElementById("localVendor").addEventListener("change", function () {
-        var localVendorDetails = document.getElementById("localVendorDetails");
-        localVendorDetails.style.display = this.checked ? "block" : "none";
-    });
-    document.getElementById('amount').addEventListener('change', function () {
-            var customAmountDiv = document.getElementById('customAmountDiv');
-            if (this.value === 'custom') {
-                customAmountDiv.style.display = 'block';
+function toggleForm(formId) {
+            var section = document.getElementById(formId + 'Section');
+            var form = document.getElementById(formId);
+
+            if (section.style.display === 'none') {
+                // Hide other sections
+                var sections = document.querySelectorAll('section');
+                sections.forEach(function (el) {
+                    el.style.display = 'none';
+                });
+
+                // Show selected section and form
+                section.style.display = 'block';
+                form.style.display = 'block';
             } else {
-                customAmountDiv.style.display = 'none';
+                // Hide selected section and form
+                section.style.display = 'none';
+                form.style.display = 'none';
             }
-        });
-         document.getElementById("localVendor").addEventListener("change", function () {
-        var localVendorDetails = document.getElementById("localVendorDetails");
-        localVendorDetails.style.display = this.checked ? "block" : "none";
-    });
+        }
+    // document.addEventListener("DOMContentLoaded", function () {
+    // // Show/hide forms on click
+    // var formSections = document.querySelectorAll('.form-section');
+
+    // formSections.forEach(function (section) {
+    //     section.addEventListener('click', function () {
+    //         formSections.forEach(function (otherSection) {
+    //             if (otherSection !== section) {
+    //                 otherSection.classList.remove('active');
+    //             }
+    //         });
+
+    //         section.classList.toggle('active');
+    //     });
+    // });
+
+    // Show/hide local vendor details based on checkbox selection
+//     document.getElementById("localVendor").addEventListener("change", function () {
+//         var localVendorDetails = document.getElementById("localVendorDetails");
+//         localVendorDetails.style.display = this.checked ? "block" : "none";
+//     });
+
+//     document.getElementById('amount').addEventListener('change', function () {
+//         var customAmountDiv = document.getElementById('customAmountDiv');
+//         if (this.value === 'custom') {
+//             customAmountDiv.style.display = 'block';
+//         } else {
+//             customAmountDiv.style.display = 'none';
+//         }
+//     });
+
+//     document.getElementById("localVendor").addEventListener("change", function () {
+//         var localVendorDetails = document.getElementById("localVendorDetails");
+//         localVendorDetails.style.display = this.checked ? "block" : "none";
+//     });
+// });
+
+    // Show/hide local vendor details based on checkbox selection
+    document.addEventListener("DOMContentLoaded", function () {
+    // Show/hide local vendor details based on checkbox selection
+//     document.getElementById("localVendor").addEventListener("change", function () {
+//         var localVendorDetails = document.getElementById("localVendorDetails");
+//         localVendorDetails.style.display = this.checked ? "block" : "none";
+//     });
+
+//     document.getElementById('amount').addEventListener('change', function () {
+//         var customAmountDiv = document.getElementById('customAmountDiv');
+//         if (this.value === 'custom') {
+//             customAmountDiv.style.display = 'block';
+//         } else {
+//             customAmountDiv.style.display = 'none';
+//         }
+//     });
+
+//     document.getElementById("localVendor").addEventListener("change", function () {
+//         var localVendorDetails = document.getElementById("localVendorDetails");
+//         localVendorDetails.style.display = this.checked ? "block" : "none";
+//     });
+
+//     // Show/hide forms on click
+//     var formSections = document.querySelectorAll('.form-section');
+
+//     formSections.forEach(function (section) {
+//         section.addEventListener('click', function () {
+//             formSections.forEach(function (otherSection) {
+//                 if (otherSection !== section) {
+//                     otherSection.classList.remove('active');
+//                     otherSection.querySelector('form').style.display = 'none';
+//                 }
+//             });
+
+//             section.classList.toggle('active');
+//             var form = section.querySelector('form');
+//             form.style.display = form.style.display === 'none' ? 'block' : 'none';
+//         });
+//     });
+// });
+
+//     document.getElementById('amount').addEventListener('change', function () {
+//             var customAmountDiv = document.getElementById('customAmountDiv');
+//             if (this.value === 'custom') {
+//                 customAmountDiv.style.display = 'block';
+//             } else {
+//                 customAmountDiv.style.display = 'none';
+//             }
+//         });
+//          document.getElementById("localVendor").addEventListener("change", function () {
+//         var localVendorDetails = document.getElementById("localVendorDetails");
+//         localVendorDetails.style.display = this.checked ? "block" : "none";
+//     });
+// function toggleForm(formId) {
+//     var form = document.getElementById(formId);
+//     form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+// }
+
     </script>
     <footer>
         <p>&copy; 2024 Support Hub. All rights reserved.</p>
