@@ -24,7 +24,7 @@
 <section>
     <div class="donation-form">
         <h2 onclick="toggleForm('donationForm')">Monetary Donation</h2>
-        <form id="donationForm" action="your_payment_processing_endpoint" method="POST">
+        <form id="donationForm" action="{{ url_for('monetarydonation') }}" method="POST">
             <label for="amount">Select Donation Amount:</label>
             <select id="amount" name="amount">
                 <option value="10">$10</option>
@@ -141,6 +141,5 @@
 
 </body>
 </html>
-
 
 
