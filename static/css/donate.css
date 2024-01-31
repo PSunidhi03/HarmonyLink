@@ -1,152 +1,88 @@
-/* Color Palette */
 :root {
-    --white: #e1d9ff;
-    --dark-purple: #2b1444;
-    --train-purple: #572b83;
-    --train-window: #d4aa71;
-    --shooting-star-purple: #502b8c;
-    --light-pink: #b65b8d;
-    --dark-pink: #863c82;
-    --dono-ka-sar: #9c6bc3;
-}
+            --primary-bg: #e1d9ff; /* Light Purple */
+            --dark-purple: #2b1444;
+            --train-purple: #572b83;
+            --train-window: #d4aa71;
+            --shooting-star-purple: #502b8c;
+            --light-pink: #b65b8d;
+            --dark-pink: #863c82;
+            --dono-ka-sar: #9c6bc3;
+        }
 
-/* Body Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: var(--white);
-    color: var(--dark-purple);
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--dark-purple);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-/* Navigation Styles */
-nav {
-    background-color: var(--train-window);
-    padding: 1rem;
-    text-align: center;
-}
+        header {
+            background-color: var(--train-purple);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        section {
+            display: none;
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid var(--dark-purple);
+            background-color: white;
+            border-radius: 10px;
+        }
 
-nav li {
-    display: inline-block;
-    margin-right: 1rem;
-}
+        h2 {
+            cursor: pointer;
+            color: var(--shooting-star-purple);
+        }
 
-nav a {
-    text-decoration: none;
-    color: var(--dark-purple);
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s ease-in-out;
-}
+        form {
+            display: none;
+            margin-top: 20px;
+        }
 
-nav a:hover {
-    color: var(--shooting-star-purple);
-}
+        label {
+            display: block;
+            margin-top: 10px;
+        }
 
-/* Connect Page Sections Styles */
-.connect-section {
-    padding: 2rem;
-}
+        select,
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid var(--dark-purple);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-.connect-section h2 {
-    color: var(--shooting-star-purple);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
+        button {
+            background-color: var(--dono-ka-sar);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-/* Care Homes Directory Section Styles */
-.directory-section {
-    background-color: var(--train-purple);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem;
-}
+        footer {
+            background-color: var(--dark-purple);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: auto;
+        }
 
-.directory-section h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
 
-.directory-option {
-    background-color: var(--dark-purple);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-}
 
-.directory-option h4 {
-    color: var(--white);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.directory-option p {
-    color: var(--white);
-    font-size: 1rem;
-}
-
-.directory-option button {
-    background-color: var(--shooting-star-purple);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.directory-option button:hover {
-    background-color: var(--train-purple);
-}
-
-/* Skill Sharing Section Styles */
-.skill-sharing-section {
-    background-color: var(--dark-pink);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem;
-}
-
-.skill-sharing-section h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.skill-sharing-section p {
-    color: var(--white);
-    font-size: 1rem;
-}
-
-.skill-sharing-section select,
-.skill-sharing-section input,
-.skill-sharing-section button {
-    margin-top: 1rem;
-}
-
-/* Remote Volunteering Section Styles */
-.remote-volunteering-section {
-    background-color: var(--train-purple);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem;
-}
-
-.remote-volunteering-section h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
 
