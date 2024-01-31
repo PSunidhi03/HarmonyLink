@@ -155,41 +155,11 @@ def monetarydonation():
 
         success, error_message = add_dontation(g_username,amount, date.today())
 
-        return render_template('index.html', success=success, error_message=error_message)
+        return render_template('donationcomplete.html', success=success, error_message=error_message)
 
 
 
 #=============== MONETARY DONATION ==========================
-
-
-
-#=============== FOOD DONATION ==========================
-
-def add_dontation(username, amount, date):
-
-    user_data = (username, amount, date)
-    insert_query = "INSERT INTO monetary_donations (username, amount, dat) VALUES (%s, %s, %s)"
-
-    cursor = mysql.cursor()
-    cursor.execute(insert_query, user_data)
-    mysql.commit()
-
-    return True, None
-
-@app.route('/monetarydonation', methods=['POST'])
-def monetarydonation():
-    global g_username
-    if request.method == 'POST':
-        amount = request.form['amount']
-        username = g_username
-
-        success, error_message = add_dontation(g_username,amount, date.today())
-
-        return render_template('index.html', success=success, error_message=error_message)
-
-
-
-#=============== FOOD DONATION ==========================
 
 
 

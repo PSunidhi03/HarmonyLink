@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Complete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        p {
+            color: #333;
+        }
+
+        a, button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #007BFF;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Complete</h1>
+    <p>Thank you for your donation!</p>
+    <p>Your support is greatly appreciated.</p>
+
+    <!-- Provide a link to download the receipt -->
+    <a href="/path/to/your/receipt.pdf" download="donation_receipt.pdf">Download Receipt</a>
+
+    <!-- Add a button to go to the home page -->
+    <button onclick="redirectToHome()">Go to Home Page</button>
+
+    <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>
+
