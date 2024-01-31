@@ -51,33 +51,101 @@
     </div>
 
     <!-- Skill Sharing Section -->
-    <div class="skill-sharing-section">
-        <h3>Skill Sharing</h3>
-        <p>Share your skills and learn from others in our community.</p>
-          <div>
-        <label for="skill-category">Select a Skill Category:</label>
-        <select id="skill-category" name="skill-category">
-            <option value="practical">Practical Skills</option>
-            <option value="educational">Educational Skills</option>
-            <option value="technical">Technical Skills</option>
-            <option value="recreational">Recreational Skills</option>
-            <option value="emotional-support">Emotional Support</option>
-        </select>
-    </div>
+    
+   <div class="skill-sharing-section">
+    <h3>Skill Sharing</h3>
+    <p>Share your skills and learn from others in our community.</p>
+    <form id="skillSharingForm" action="submit_skill_sharing_form.php" method="POST">
         <div>
-        <label for="location">Filter by Location:</label>
-        <input type="text" id="location" name="location" placeholder="Enter location">
-        <button>Submit</button>
-    </div><!-- Add more content or features as needed -->
+            <label for="skill-category">Select a Skill Category:</label>
+            <select id="skill-category" name="skill-category" required>
+                <option value="practical">Practical Skills</option>
+                <option value="educational">Educational Skills</option>
+                <option value="technical">Technical Skills</option>
+                <option value="recreational">Recreational Skills</option>
+                <option value="emotional-support">Emotional Support</option>
+            </select>
+        </div>
+        <div>
+            <label for="skill-description">Describe Your Skill:</label>
+            <textarea id="skill-description" name="skill-description" rows="4" placeholder="Provide a brief description of your skill" required></textarea>
+        </div>
+        <div>
+            <label for="location">Filter by Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter location">
+        </div>
+        <div>
+            <label for="availability">Your Availability:</label>
+            <input type="text" id="availability" name="availability" placeholder="e.g., Weekdays after 6 PM, Weekends" required>
+        </div>
+        <div>
+            <label>Select Available Time Slots:</label>
+            <div id="time-slots">
+                <input type="checkbox" id="slot-morning" name="time-slot" value="morning">
+                <label for="slot-morning">Morning (9 AM - 12 PM)</label>
+
+                <input type="checkbox" id="slot-afternoon" name="time-slot" value="afternoon">
+                <label for="slot-afternoon">Afternoon (12 PM - 3 PM)</label>
+
+                <input type="checkbox" id="slot-evening" name="time-slot" value="evening">
+                <label for="slot-evening">Evening (6 PM - 9 PM)</label>
+            </div>
+        </div>
+        <div>
+            <label for="comments">Additional Comments or Requirements:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Any specific requirements or additional comments"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Add more content or features as needed -->
     <div id="skill-listings">
         <!-- Skill listings will be dynamically added here using JavaScript -->
     </div>
-    </div>
+</div>
+
+
+
+
+
+
     <section id="remote-volunteering">
-    <!-- Remote Volunteering Section -->
     <div class="remote-volunteering-section">
-        <h3>Remote Volunteering</h3>
+         <h2>Join Us as a Digital Impact Volunteer!</h2>
         <p>Contribute to our causes from the comfort of your home.</p>
+        <form id="digitalImpactVolunteerForm" action="submit_volunteer_form.php" method="POST">
+
+            <!-- Time Commitment Dropdown -->
+            <label for="timeCommitment">Preferred Time Commitment:</label>
+            <select id="timeCommitment" name="timeCommitment" required>
+                <option value="5">5 hours per week</option>
+                <option value="10">10 hours per week</option>
+                <option value="15">15 hours per week</option>
+                <option value="custom">Custom</option>
+            </select>
+
+            <!-- Volunteer Preferences -->
+            <label for="volunteerPreferences">What type of digital tasks interest you?</label>
+            <textarea id="volunteerPreferences" name="volunteerPreferences" rows="4" placeholder="Tell us about your interests and preferences" required></textarea>
+
+            <!-- Technical Skills -->
+            <label for="technicalSkills">Your Digital Skills:</label>
+            <input type="text" id="technicalSkills" name="technicalSkills" placeholder="e.g., Social Media Management, Graphic Design" required>
+
+            <!-- Previous Volunteer Experience -->
+            <label for="prevVolunteerExperience">Share your digital volunteering experience:</label>
+            <textarea id="prevVolunteerExperience" name="prevVolunteerExperience" rows="4" placeholder="Describe your previous digital volunteering activities"></textarea>
+
+            <!-- Motivation -->
+            <label for="motivation">What motivates you to digitally volunteer?</label>
+            <textarea id="motivation" name="motivation" rows="4" placeholder="Tell us about your motivation to join as a digital impact volunteer"></textarea>
+
+            <!-- Additional Information -->
+            <label for="additionalInfo">Anything else you'd like us to know?</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Feel free to share any additional information"></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
         <!-- Add more content or features as needed -->
 
     </div>
