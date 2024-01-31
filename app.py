@@ -4,6 +4,9 @@ import mysql.connector
 
 app = Flask(__name__)
 
+isLoggedIn = False
+
+
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'orange'
@@ -23,7 +26,7 @@ mysql = mysql.connector.connect(
 @app.route('/')
 def index():
     # Sample query to fetch data from a table
-    return render_template('index.html')
+    return render_template('index.html', isLoggedIn=isLoggedIn)
 
 @app.route('/volunteer.html')
 def volunteer():
@@ -32,8 +35,11 @@ def volunteer():
 
 @app.route('/donate.html')
 def donate():
-    # Sample query to fetch data from a table
-    return render_template('donate.html')
+    # Check if the user is logged in before allowing access to the donate page
+    if isLoggedIn:
+        return render_template('donate.html', username=session['username'])
+    else:
+        return render_template('user reg form.html')
 
 @app.route('/calendar.html')
 def calendar():
@@ -104,28 +110,23 @@ def authenticate_user(username, password):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    global isLoggedIn
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
         if authenticate_user(username, password):
             # If authentication is successful, store the user in the session
+            isLoggedIn = True
             session['username'] = username
             return redirect(url_for('index'))
         else:
             error_message = "Invalid username or password"
-            return render_template('login', error_message=error_message)
+            return render_template('user reg form.html', error_message=error_message)
 
     return render_template('login.html')
 
-@app.route('/dashboard')
-def dashboard():
-    # Check if the user is logged in before accessing the dashboard
-    if 'username' in session:
-        username = session['username']
-        return render_template('dashboard.html', username=username)
-    else:
-        return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
