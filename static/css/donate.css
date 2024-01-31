@@ -74,14 +74,21 @@
             cursor: pointer;
         }
 
-        footer {
-            background-color: var(--dark-purple);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            margin-top: auto;
-        }
+        /* Footer Styles */
+footer {
+    background-color: var(--train-window);
+    text-align: center;
+    padding: 0.1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+footer p {
+    color: var(--dark-purple);
+    font-size: 0.8rem;
+}
 
 
 
