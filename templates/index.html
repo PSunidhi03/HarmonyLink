@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmony Link</title>
     <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
 </head>
 <script src="../static/js/main.js"></script>
 <body>
@@ -14,7 +16,8 @@
         <p>Bridging Lives, Reducing Waste, Weaving Sustainability</p>
         <div ng-show="isLoggedIn">
         {% if isLoggedIn %}
-            <i class="fas fa-user" style="font-size: 24px; color: #333; margin-right: 10px;"></i>
+            <i class="fas fa-user" style="font-size: 24px; color: #fff; margin-right: 10px; position: relative;"></i><br>
+            {% user.username %}
         {% endif %}
     </div>
     </header>
@@ -44,6 +47,7 @@
         <div class="services">
             <div class="service-card">
                 <img src="connecting-lives.jpg" alt="Connecting Lives">
+                <i class="fa-solid fa-person-military-to-person"></i>
                 <h2>Connecting Lives</h2>
                 <p>Discover opportunities to connect with care facility residents and make a positive impact on their lives.</p>
                 <!-- Additional content for Connecting Lives -->

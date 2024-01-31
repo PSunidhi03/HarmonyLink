@@ -5,6 +5,7 @@ import mysql.connector
 app = Flask(__name__)
 
 isLoggedIn = False
+user_details = {};
 
 
 # MySQL Configuration
@@ -26,7 +27,7 @@ mysql = mysql.connector.connect(
 @app.route('/')
 def index():
     # Sample query to fetch data from a table
-    return render_template('index.html', isLoggedIn=isLoggedIn)
+    return render_template('index.html', isLoggedIn=isLoggedIn, user=user_details)
 
 @app.route('/volunteer.html')
 def volunteer():
@@ -111,6 +112,7 @@ def authenticate_user(username, password):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global isLoggedIn
+    global user_details
 
     if request.method == 'POST':
         username = request.form['username']
@@ -119,6 +121,8 @@ def login():
         if authenticate_user(username, password):
             # If authentication is successful, store the user in the session
             isLoggedIn = True
+            user_details.username = username
+
             session['username'] = username
             return redirect(url_for('index'))
         else:

@@ -39,6 +39,7 @@ header p {
     animation: fadeInUp 1s ease-in-out;
 }
 
+
 /* Navigation Styles */
 nav {
     background-color: var(--train-window);
@@ -192,14 +193,6 @@ footer p {
     font-size: 0.8rem;
 }
 
-.user-icon {
-    float: right;
-    font-size: 36px;
-    color: #333;
-    margin-right: 2px;
-    display: block;
-    margin-top: 10px;
-}
 
 /* Animations */
 @keyframes zoomIn {
