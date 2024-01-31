@@ -26,7 +26,7 @@ mysql = mysql.connector.connect(
 @app.route('/')
 def index():
     # Sample query to fetch data from a table
-    return render_template('index.html')
+    return render_template('index.html', isLoggedIn=isLoggedIn)
 
 @app.route('/volunteer.html')
 def volunteer():
