@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from datetime import date
 
 import mysql.connector
 
 app = Flask(__name__)
 
 isLoggedIn = False
-user_details = {};
+username = '';
 
 
 # MySQL Configuration
@@ -27,7 +28,7 @@ mysql = mysql.connector.connect(
 @app.route('/')
 def index():
     # Sample query to fetch data from a table
-    return render_template('index.html', isLoggedIn=isLoggedIn, user=user_details)
+    return render_template('index.html', isLoggedIn=isLoggedIn)
 
 @app.route('/volunteer.html')
 def volunteer():
@@ -77,10 +78,10 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = str(request.form['password'])
-        confirm_password = str(request.form['confirm_password'])
-        address = str(request.form['address'])
-        contact = str(request.form['contact'])
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        address = request.form['address']
+        contact = request.form['contact']
 
         success, error_message = add_user_to_database(username, email, password, confirm_password, address, contact)
 
@@ -96,11 +97,6 @@ app.secret_key = 'your_secret_key'  # Change this to a secret and unique value
 
 
 def authenticate_user(username, password):
-    # This function should check if the username and password match in the database
-    # You may need to query your database and compare the stored hash of the password
-    # with the hash of the entered password
-    # If the authentication is successful, return True; otherwise, return False
-    # Example:
     cursor = mysql.cursor()
     cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username, password))
     user = cursor.fetchone()
@@ -112,7 +108,7 @@ def authenticate_user(username, password):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global isLoggedIn
-    global user_details
+    global g_username
 
     if request.method == 'POST':
         username = request.form['username']
@@ -121,7 +117,7 @@ def login():
         if authenticate_user(username, password):
             # If authentication is successful, store the user in the session
             isLoggedIn = True
-            user_details.username = username
+            g_username = username
 
             session['username'] = username
             return redirect(url_for('index'))
@@ -132,12 +128,69 @@ def login():
     return render_template('login.html')
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 
 
 #=============== LOGIN ==========================
+
+
+#=============== MONETARY DONATION ==========================
+
+def add_dontation(username, amount, date):
+
+    user_data = (username, amount, date)
+    insert_query = "INSERT INTO monetary_donations (username, amount, dat) VALUES (%s, %s, %s)"
+
+    cursor = mysql.cursor()
+    cursor.execute(insert_query, user_data)
+    mysql.commit()
+
+    return True, None
+
+@app.route('/monetarydonation', methods=['POST'])
+def monetarydonation():
+    global g_username
+    if request.method == 'POST':
+        amount = request.form['amount']
+        username = g_username
+
+        success, error_message = add_dontation(g_username,amount, date.today())
+
+        return render_template('index.html', success=success, error_message=error_message)
+
+
+
+#=============== MONETARY DONATION ==========================
+
+
+
+#=============== FOOD DONATION ==========================
+
+def add_dontation(username, amount, date):
+
+    user_data = (username, amount, date)
+    insert_query = "INSERT INTO monetary_donations (username, amount, dat) VALUES (%s, %s, %s)"
+
+    cursor = mysql.cursor()
+    cursor.execute(insert_query, user_data)
+    mysql.commit()
+
+    return True, None
+
+@app.route('/monetarydonation', methods=['POST'])
+def monetarydonation():
+    global g_username
+    if request.method == 'POST':
+        amount = request.form['amount']
+        username = g_username
+
+        success, error_message = add_dontation(g_username,amount, date.today())
+
+        return render_template('index.html', success=success, error_message=error_message)
+
+
+
+#=============== FOOD DONATION ==========================
+
 
 
 if __name__ == '__main__':
