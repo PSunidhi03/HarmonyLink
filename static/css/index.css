@@ -10,6 +10,7 @@
     --dono-ka-sar: #9c6bc3;
 }
 
+
 body {
     background-color: var(--white);
     color: var(--dark-purple);
@@ -186,6 +187,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    
 }
 
 footer p {
