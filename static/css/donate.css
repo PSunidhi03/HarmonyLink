@@ -29,7 +29,7 @@
         }
 
         section {
-            display: none;
+            display: block; /* Changed from none to block */
             max-width: 600px;
             margin: 20px;
             padding: 20px;
