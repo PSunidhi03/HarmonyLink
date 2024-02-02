@@ -53,6 +53,11 @@ def register_login():
     # Sample query to fetch data from a table
     return render_template('user reg form.html')
 
+@app.route('/donationcomplete')
+def donationcomplete():
+    # Sample query to fetch data from a table
+    return render_template('donationcomplete.html')
+
 #=============== ROUTES ==========================
 
 
@@ -155,7 +160,7 @@ def monetarydonation():
 
         success, error_message = add_dontation(g_username,amount, date.today())
 
-        return render_template('donationcomplete.html', success=success, error_message=error_message)
+        return render_template('dummypg.html', success=success, error_message=error_message)
 
 
 

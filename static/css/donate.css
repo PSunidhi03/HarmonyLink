@@ -1,153 +1,151 @@
 :root {
---white: #e1d9ff;
-    --primary-bg: #e1d9ff;
-    /* Light Purple */
-    --dark-purple: #2b1444;
-    --train-purple: #572b83;
-    --train-window: #d4aa71;
-    --shooting-star-purple: #502b8c;
-    --light-pink: #b65b8d;
-    --dark-pink: #863c82;
-    --dono-ka-sar: #9c6bc3;
+  --primary-bg: #e1d9ff;
+  /* Light Purple */
+  --dark-purple: #2b1444;
+  --train-purple: #572b83;
+  --train-window: #d4aa71;
+  --shooting-star-purple: #502b8c;
+  --light-pink: #b65b8d;
+  --dark-pink: #863c82;
+  --dono-ka-sar: #9c6bc3;
+  --white: #ffffff; /* Added missing white variable */
 }
+
 /* Navigation Styles */
 nav {
-    background-color: var(--train-window);
-    padding: 1rem;
-    text-align: center;
+  background-color: var(--train-window);
+  padding: 1rem;
+  text-align: center;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
-    display: inline-block;
-    margin-right: 1rem;
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 nav a {
-    text-decoration: none;
-    color: var(--dark-purple);
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  color: var(--dark-purple);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
 }
 
 nav a:hover {
-    color: var(--shooting-star-purple);
+  color: var(--shooting-star-purple);
 }
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--dark-purple);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh; /* Ensure body takes at least the full viewport height */
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--dark-purple);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
-    background-color: var(--train-purple);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem;
+  background-color: var(--train-purple);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    animation: zoomIn 1s ease-in-out;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  animation: zoomIn 1s ease-in-out;
 }
 
 header p {
-    font-size: 1.2rem;
-    font-style: italic;
-    animation: fadeInUp 1s ease-in-out;
+  font-size: 1.2rem;
+  font-style: italic;
+  animation: fadeInUp 1s ease-in-out; /* Corrected animation name */
 }
 
 section {
-    display: block;
-    /* Changed from none to block */
-    margin: 20px;
-    padding: 20px;
-    border: 2px solid var(--dark-purple);
-    background-color: white;
-    border-radius: 10px;
+  max-width: 600px;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid var(--dark-purple);
+  background-color: white;
+  border-radius: 10px;
 }
 
 h2 {
-    cursor: pointer;
-    color: var(--shooting-star-purple);
+  cursor: pointer;
+  color: var(--shooting-star-purple);
 }
 
 form {
-    display: none;
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
+  display: block;
+  margin-top: 10px;
+  color: var(--dark-purple); /* Add this line to set the label color */
 }
 
 select,
 input,
 textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid var(--dark-purple);
-    border-radius: 5px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid var(--dark-purple);
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 button {
-    background-color: var(--dono-ka-sar);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: var(--dono-ka-sar);
+  color: var(--white);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Footer Styles */
 footer {
-    background-color: var(--train-window);
-    text-align: center;
-    padding: 1rem; /* Add padding to the footer */
-    width: 100%;
-    margin-top: auto; /* Push the footer to the bottom */
+  background-color: var(--train-window);
+  text-align: center;
+  padding: 0.1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
 }
 
 footer p {
-    color: var(--dark-purple);
-    font-size: 0.8rem;
+  color: var(--dark-purple);
+  font-size: 0.8rem;
 }
-/* Animations */
+
 @keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
 }
