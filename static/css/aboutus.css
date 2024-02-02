@@ -8,20 +8,101 @@
     --dark-pink: #863c82;
     --dono-ka-sar: #9c6bc3;
 }
+/* Header Styles */
+header {
+    background-color: var(--train-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
 
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: zoomIn 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-style: italic;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+
+/* Navigation Styles */
+nav {
+    background-color: var(--train-window);
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-purple);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--shooting-star-purple);
+}
+/* Footer Styles */
+footer {
+    background-color: var(--train-window);
+    text-align: center;
+    padding: 0.1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+footer p {
+    color: var(--dark-purple);
+    font-size: 0.8rem;
+}
+
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--dark-pink);
     color: var(--dark-purple);
-}
-
-header {
-    text-align: center;
-    background-color: var(--train-purple);
-    color: var(--white);
-    padding: 20px;
 }
 
 section {
@@ -92,12 +173,4 @@ h3 {
     display: block;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--train-purple);
-    color: var(--white);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+

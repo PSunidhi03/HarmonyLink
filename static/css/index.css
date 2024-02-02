@@ -89,6 +89,8 @@ nav a:hover {
 /* Main Content Styles */
 section {
     padding: 2rem;
+    background-color:var(--white);
+    color:#2b1444;
 }
 
 section h2 {
