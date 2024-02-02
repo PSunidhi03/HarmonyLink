@@ -1,0 +1,103 @@
+:root {
+    --white: #e1d9ff;
+    --dark-purple: #2b1444;
+    --train-purple: #572b83;
+    --train-window: #d4aa71;
+    --shooting-star-purple: #502b8c;
+    --light-pink: #b65b8d;
+    --dark-pink: #863c82;
+    --dono-ka-sar: #9c6bc3;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-pink);
+    color: var(--dark-purple);
+}
+
+header {
+    text-align: center;
+    background-color: var(--train-purple);
+    color: var(--white);
+    padding: 20px;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: var(--shooting-star-purple);
+}
+
+h3 {
+    color: var(--shooting-star-purple);
+}
+
+.feature, .team-member {
+    margin-bottom: 20px;
+}
+/* Add this CSS for FAQ section */
+#faq {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#faq h2 {
+    color: var(--shooting-star-purple);
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-item input {
+    display: none;
+}
+
+.faq-item label {
+    display: block;
+    background-color: var(--train-window);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item input:checked + label {
+    background-color: var(--train-purple);
+    color: var(--white);
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: var(--train-window);
+    border-radius: 5px;
+}
+
+.faq-item input:checked + label + .faq-answer {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--train-purple);
+    color: var(--white);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
