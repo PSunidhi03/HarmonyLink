@@ -58,6 +58,21 @@ def donationcomplete():
     # Sample query to fetch data from a table
     return render_template('donationcomplete.html')
 
+@app.route('/carehomes')
+def carehomes():
+    try:
+        cursor = mysql.cursor()
+        query = "SELECT c_name, c_location FROM carehomes"
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        return render_template('carehomes.html', data=rows)
+
+    finally:
+        cursor.close()
+        mysql.close()
+    return render_template('donationcomplete.html')
+
+
 #=============== ROUTES ==========================
 
 
