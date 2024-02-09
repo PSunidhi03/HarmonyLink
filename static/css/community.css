@@ -1,0 +1,268 @@
+/* Feedback and Reviews Section Styles */
+:root {
+    --white: #e1d9ff;
+    --dark-purple: #2b1444;
+    --train-purple: #572b83;
+    --train-window: #d4aa71;
+    --shooting-star-purple: #502b8c;
+    --light-pink: #b65b8d;
+    --dark-pink: #863c82;
+    --dono-ka-sar: #9c6bc3;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--train-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: zoomIn 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-style: italic;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+button {
+            margin-right: 7px;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff; /* Text color */
+            background-color: #cdac79; /* Background color */
+            border: 1px solid #cdac79; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+
+
+/* Navigation Styles */
+nav {
+    background-color: var(--train-window);
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-purple);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--shooting-star-purple);
+}
+.feedback-section {
+    background-color: var(--light-pink);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.feedback-section h2 {
+    color: var(--dark-purple); /* Change heading color */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feedback-section .care-home-feedback {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.feedback-section .review-box {
+    background-color: var(--dark-pink);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    flex: 1;
+    max-width: 300px;
+    box-sizing: border-box;
+ transition: transform 0.3s ease-in-out;
+}
+
+.feedback-section .review-box h3 {
+    color: var(--white);
+    margin-top: 1rem;
+}
+.feedback-section .review-box:hover {
+    transform: translateY(-5px); /* Move the box up slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on hover */
+}
+.feedback-section .review-box .user-comment {
+    color: var(--white);
+}
+
+.feedback-section .user-feedback-form {
+    background-color: var(--dark-purple);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-section .user-feedback-form h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.feedback-section .user-feedback-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-section .user-feedback-form label {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.feedback-section .user-feedback-form textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.feedback-section .user-feedback-form button[type="submit"] {
+    background-color: var(--light-pink);
+    color: var(--dark-purple);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-section .user-feedback-form button[type="submit"]:hover {
+    background-color: var(--train-window);
+    color: var(--dark-pink);
+}
+
+/* Additional styles for Social Media Section */
+.social-media-section {
+    background-color: var(--shooting-star-purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-media-section h3 {
+    color: var(--train-window);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-media-section .story-clip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.social-media-section .story-clip {
+    background-color: var(--dark-purple);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.social-media-section .story-clip img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.social-media-section .story-clip .story-text {
+    color: var(--white);
+    margin-top: 1rem;
+}
+
+.social-media-section .story-clip .interactions {
+    margin-top: 1rem;
+}
+
+.social-media-section .story-clip .like-button,
+.social-media-section .story-clip .share-button {
+    background-color: var(--light-pink);
+    color: var(--dark-purple);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.social-media-section .story-clip .like-button:hover,
+.social-media-section .story-clip .share-button:hover {
+    background-color: var(--train-window);
+    color: var(--dark-pink);
+}
+/* Footer Styles */
+footer {
+    background-color: var(--train-window);
+    text-align: center;
+    padding: 0.1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+footer p {
+    color: var(--dark-purple);
+    font-size: 0.8rem;
+}
+
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
