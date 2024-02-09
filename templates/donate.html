@@ -24,7 +24,7 @@
             <li><a href="community.html">Community</a></li>
         </ul>
     </nav>
-<section>
+<section id = "monetarydonation">
     <div class="donation-form">
         <h2 onclick="toggleForm('donationForm')">Monetary Donation</h2>
         <form id="donationForm" action="{{ url_for('monetarydonation') }}" method="POST">
@@ -47,7 +47,7 @@
     </section>
 
 
-    <section>
+    <section id = "donationnn">
          <h2 onclick="toggleForm('foodDonationForm')">Share the Bounty: Hotel and Event Food Donations with Quality Check</h2>
         <form id="foodDonationForm">
     <label for="donationType">Donation Type:</label>
@@ -82,7 +82,7 @@
 </form>
     </section>
 
-    <section>
+    <section id="textiledon">
         <h2 onclick="toggleForm('textileDonationForm')">Threads of Compassion: Empower Through Textile Donation</h2>
         <form id="textileDonationForm">
 
@@ -128,6 +128,7 @@
 
     <input type="submit" value="Submit">
 </form>
+</section>
 
 <script src="script.js"></script>
 
