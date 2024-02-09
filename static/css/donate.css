@@ -93,16 +93,16 @@ footer {
     background-color: var(--train-window);
     color: var(--dark-purple);
     text-align: center;
-    padding: 0.1rem;
+    padding: 1rem;
     position: fixed;
     bottom: 0;
-    left: 0; /* Set left position to 0 */
+    left: 0;
     width: 100%;
 }
 
 footer p {
-    color: var(--dark-purple);
-    font-size: 0.8rem;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Form Styles */
@@ -159,5 +159,29 @@ form button[type="submit"]:hover {
 #customAmountDiv {
     display: none;
 }
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 
