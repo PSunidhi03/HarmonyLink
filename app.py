@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from mysql.connector import Error
 from datetime import date
 import shutil
 import os
@@ -8,19 +7,20 @@ import mysql.connector
 app = Flask(__name__)
 
 isLoggedIn = False
-g_username = '';
+g_username = ''
 backup_file = 'db.sql'
 
 
 # MySQL Configuration
-db_config = {
-    'host': 'localhost',
-    'user': 'orange',
-    'password': 'orange',
-    'database': 'harmonylink',
-}
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'orange'
+app.config['MYSQL_PASSWORD'] = 'orange'
 
-mysql = mysql.connector.connect(**db_config)
+mysql = mysql.connector.connect(
+    host=app.config['MYSQL_HOST'],
+    user=app.config['MYSQL_USER'],
+    password=app.config['MYSQL_PASSWORD'],
+)
 
 #=============== ROUTES ==========================
 
@@ -85,31 +85,36 @@ def carehomes():
 @app.route('/initialize-database')
 def initialize_database():
     try:
-        mysql = mysql.connector.connect(**db_config)
-        cursor = mysql.cursor()
-
-        cursor.execute("SHOW DATABASES LIKE '{}'".format(db_config['database']))
+        # Check if the database already exists
+        cursor = mysql.cursor(buffered=True)
+        cursor.execute("SHOW DATABASES LIKE '{}'".format('harmonylink'))
         database_exists = cursor.fetchone()
+        rows = cursor.fetchall()
 
         if database_exists:
-            return jsonify({"status": "error", "message": "Database already exists."})
+            return render_template('result.html', status="Error", message="Database already exists.")
 
-        cursor.execute("CREATE DATABASE {}".format(db_config['database']))
+        # Create the database
+        cursor.execute("CREATE DATABASE {}".format('harmonylink'))
+        rows = cursor.fetchall()
 
-        cursor.execute("USE {}".format(db_config['database']))
+        # Use the created database
+        cursor.execute("USE {}".format('harmonylink'))
+        rows = cursor.fetchall()
 
+        # Read the SQL statements from the backup file and execute them
         with open(backup_file, 'r') as backup:
             sql_statements = backup.read()
             cursor.execute(sql_statements, multi=True)
 
         mysql.commit()
-        mysql.close()
+        cursor.close()
 
-        return jsonify({"status": "success", "message": "Database initialized successfully."})
-    except Error as e:
-        return jsonify({"status": "error", "message": str(e)})
+
+        return render_template('result.html', status="Success", message="Database initialized successfully.")
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)})
+        return render_template('result.html', status="Error", message=str(e))
+
     
 
 
