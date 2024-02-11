@@ -3,82 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Webpage</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
-
-    <!-- Include FullCalendar CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
-
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-    <!-- Include FullCalendar JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <title>Harmony Link Calendar</title>
+    <link rel="stylesheet" href="../static/css/calender.css">
 </head>
 <body>
-<header>
-        <h1>Harmony Link</h1>
+    <header>
+        <h1>Welcome to Harmony Link</h1>
+        <p>A platform connecting people with care homes</p>
     </header>
-
-    <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li> 
-            <li><a href="volunteer.html">Volunteer</a></li>
-            <li><a href="donate.html">Donate</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="community.html">Community</a></li>
-            
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-<!-- Your existing content -->
-
-<!-- Calendar Section -->
-<section>
-    <h2>Event Calendar</h2>
-    <div id="calendar"></div>
-</section>
-
-<!-- Your existing content -->
-
-<!-- Include script to initialize FullCalendar -->
-<script>
-    $(document).ready(function () {
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            events: [
-                {
-                    title: 'Care Home Event 1',
-                    start: '2024-01-01',
-                    end: '2024-01-03',
-                    description: 'Details about Care Home Event 1'
-                },
-                {
-                    title: 'Care Home Event 2',
-                    start: '2024-01-05',
-                    end: '2024-01-07',
-                    description: 'Details about Care Home Event 2'
-                },
-                {
-                    title: 'Care Home Event 3',
-                    start: '2024-01-10',
-                    end: '2024-01-12',
-                    description: 'Details about Care Home Event 3'
-                },
-                // Add more events as needed
-            ],
-            eventRender: function (event, element) {
-                element.attr('title', event.description);
-            }
-        });
-    });
-</script>
-
+    <main>
+        <div class="calendar">
+            <!-- Embed Google Calendar here -->
+            <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_GOOGLE_CALENDAR_ID&ctz=YOUR_TIMEZONE" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="events">
+            <h2>Events this Month</h2>
+            <ul>
+                <li>Event 1: Sample Event on February 10</li>
+                <li>Event 2: Sample Event on February 15</li>
+                <li>Event 3: Sample Event on February 25</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Harmony Link. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+

@@ -96,7 +96,7 @@ footer {
     background-color: var(--train-window);
     color: var(--dark-purple);
     text-align: center;
-    padding: 1rem;
+    padding:0.1rem;
     position: fixed;
     bottom: 0;
     left: 0;
