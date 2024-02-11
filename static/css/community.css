@@ -9,7 +9,14 @@
     --dark-pink: #863c82;
     --dono-ka-sar: #9c6bc3;
 }
-
+body {
+    background-color: var(--white);
+    color: var(--dark-purple);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* Header Styles */
 header {
     background-color: var(--train-purple);
