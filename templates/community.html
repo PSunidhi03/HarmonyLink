@@ -35,8 +35,33 @@
     <div class="story-clip-container" id="storyClipContainer">
         <!-- Sample Story Clip (Repeat this structure for multiple clips) -->
         <div class="story-clip">
-            <img src="sample_image.jpg" alt="Story Image">
-            <p class="story-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in justo eu justo lacinia eleifend.</p>
+           <video controls>
+        <source src="../static/vid/community_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+            <p class="story-text">Listen to Juliana's story as she reminisces about her days as a young dancer, her eyes bright with the memories of a bygone era, now finding solace in the companionship of fellow residents at the old-age home.</p>
+            <div class="interactions">
+                <button class="like-button" onclick="likeStory(this)">Like</button>
+                <button class="share-button" onclick="shareStory(this)">Share</button>
+            </div>
+        </div>
+        <div class="story-clip">
+            <video controls>
+                <source src="../static/vid/community vid 2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="story-text">Catch a glimpse of Mrs. Johnson, once a revered teacher whose passion for knowledge ignited young minds. Now, in the tranquil embrace of the old-age home, she imparts wisdom gleaned from a lifetime of experience to eager listeners</p>
+            <div class="interactions">
+                <button class="like-button" onclick="likeStory(this)">Like</button>
+                <button class="share-button" onclick="shareStory(this)">Share</button>
+            </div>
+        </div>
+        <div class="story-clip">
+            <video controls>
+                <source src="../static/vid/community_vid3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="story-text">Despite polio's challenges, Timmy, a 5-year-old in the orphanage, radiates resilience, finding joy in small victories and the warmth of companionship amidst the echoing laughter of childhood.</p>
             <div class="interactions">
                 <button class="like-button" onclick="likeStory(this)">Like</button>
                 <button class="share-button" onclick="shareStory(this)">Share</button>
@@ -55,19 +80,19 @@
 
         <!-- Review Box 1 -->
         <div class="review-box">
-            <h3>Care Home 1</h3>
+            <h3>Abhayadhama (Home for Street Boys)1</h3>
             <div class="user-comment">Excellent care and facilities. Highly recommended!</div>
         </div>
 
         <!-- Review Box 2 -->
         <div class="review-box">
-            <h3>Care Home 2</h3>
+            <h3>Good Shepherd Home for the Children</h3>
             <div class="user-comment">Friendly staff, but some improvements needed in cleanliness.</div>
         </div>
 
         <!-- Review Box 3 -->
         <div class="review-box">
-            <h3>Care Home 3</h3>
+            <h3>The Sunshine Old Age Home</h3>
             <div class="user-comment">Wonderful atmosphere. My loved ones are well taken care of.</div>
         </div>
 
