@@ -9,7 +9,14 @@
     --dark-pink: #863c82;
     --dono-ka-sar: #9c6bc3;
 }
-
+body {
+    background-color: var(--white);
+    color: var(--dark-purple);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* Header Styles */
 header {
     background-color: var(--train-purple);
@@ -109,7 +116,8 @@ nav a:hover {
 }
 
 .feedback-section .review-box h3 {
-    color: var(--white);
+    color: var(--dark-purple);
+    font-size: 1.5rem;
     margin-top: 1rem;
 }
 .feedback-section .review-box:hover {
@@ -196,10 +204,11 @@ nav a:hover {
     box-sizing: border-box;
 }
 
-.social-media-section .story-clip img {
+.social-media-section .story-clip video {
     width: 100%;
     border-radius: 8px;
 }
+
 
 .social-media-section .story-clip .story-text {
     color: var(--white);
