@@ -11,6 +11,8 @@ g_username = ''
 backup_file = 'db.sql'
 
 
+database_name = 'harmonylink'
+
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'orange'
@@ -22,7 +24,39 @@ mysql = mysql.connector.connect(
     password=app.config['MYSQL_PASSWORD'],
 )
 
+try:
+    cursor = mysql.cursor(buffered=True)
+    cursor.execute("SHOW DATABASES LIKE '{}'".format(database_name))
+    database_exists = cursor.fetchone()
+    rows = cursor.fetchall()
+
+    if database_exists:
+        mysql.database = database_name
+
+    else:
+        cursor.execute("CREATE DATABASE {}".format(database_name))
+        rows = cursor.fetchall()
+
+        cursor.execute("USE {}".format(database_name))
+        rows = cursor.fetchall()
+
+        with open(backup_file, 'r') as backup:
+            sql_statements = backup.read()
+            cursor.execute(sql_statements, multi=True)
+
+        mysql.database = database_name
+        mysql.commit(database_name)
+        cursor.close()
+
+
+except Exception as e:
+    print(e)
+
 #=============== ROUTES ==========================
+@app.route('/')
+def home():
+    # Sample query to fetch data from a table
+    return render_template('index.html', isLoggedIn=isLoggedIn, username=g_username)
 
 
 @app.route('/index.html')
