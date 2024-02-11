@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session 
 from datetime import date
-import shutil
-import os
 import mysql.connector
 
 app = Flask(__name__)
