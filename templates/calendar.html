@@ -5,37 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmony Link Calendar</title>
     <link rel="stylesheet" href="../static/css/calender.css">
+
+    <!-- Include FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Include FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+
 </head>
 <body>
-    <header>
-        <h1>Welcome to Harmony Link</h1>
-        <p>A platform connecting people with care homes</p>
-    </header>
-    <nav>
+<header>
+    <h1>Harmony Link</h1>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Calendar Section -->
+<section>
+    <div id="calendar"></div>
+    <div class="events-box">
+        <h3>Events this Month</h3>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>Art and Craft Workshop:February 1 - February 3</li>
+            <li>Music Therapy Session: February 5 - February 7</li>
+            <li>Gardening Workshops: February 10 - February 12</li>
         </ul>
-    </nav>
-    <main>
-        <div class="calendar">
-            <!-- Embed Google Calendar here -->
-            <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_GOOGLE_CALENDAR_ID&ctz=YOUR_TIMEZONE" frameborder="0" scrolling="no"></iframe>
-        </div>
-        <div class="events">
-            <h2>Events this Month</h2>
-            <ul>
-                <li>Event 1: Sample Event on February 10</li>
-                <li>Event 2: Sample Event on February 15</li>
-                <li>Event 3: Sample Event on February 25</li>
-            </ul>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Harmony Link. All rights reserved.</p>
-    </footer>
+    </div>
+</section>
+
+<!-- Include script to initialize FullCalendar -->
+<script>
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            events: [
+                {
+                    title: ' Art and Craft Workshop',
+                    start: '2024-02-01',
+                    end: '2024-02-03',
+                    description: '"Good will care home",Painting, drawing, and other visual arts activities.'
+                },
+                {
+                    title: 'Moon and Sunshine orphanage',
+                    start: '2024-02-05',
+                    end: '2024-02-07',
+                    description: 'Details about Care Home Event 2'
+                },
+                {
+                    title: 'Care Home Event 3',
+                    start: '2024-01-10',
+                    end: '2024-01-12',
+                    description: 'Details about Care Home Event 3'
+                },
+                // Add more events as needed
+            ],
+            eventRender: function (event, element) {
+                element.attr('title', event.description);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
+
 

@@ -1,34 +1,76 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session 
 from datetime import date
-
 import mysql.connector
 
 app = Flask(__name__)
 
 isLoggedIn = False
-g_username = '';
+g_username = ''
+backup_file = 'db.sql'
 
+
+database_name = 'harmonylink'
 
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'orange'
 app.config['MYSQL_PASSWORD'] = 'orange'
-app.config['MYSQL_DB'] = 'harmonylink'
 
 mysql = mysql.connector.connect(
     host=app.config['MYSQL_HOST'],
     user=app.config['MYSQL_USER'],
     password=app.config['MYSQL_PASSWORD'],
-    database=app.config['MYSQL_DB']
 )
 
+try:
+    cursor = mysql.cursor(buffered=True)
+    cursor.execute("SHOW DATABASES LIKE '{}'".format(database_name))
+    database_exists = cursor.fetchone()
+    rows = cursor.fetchall()
+
+    if database_exists:
+        mysql.database = database_name
+
+    else:
+        cursor.execute("CREATE DATABASE {}".format(database_name))
+        rows = cursor.fetchall()
+
+        cursor.execute("USE {}".format(database_name))
+        rows = cursor.fetchall()
+
+        with open(backup_file, 'r') as backup:
+            sql_statements = backup.read()
+            cursor.execute(sql_statements, multi=True)
+
+        mysql.database = database_name
+        mysql.commit(database_name)
+        cursor.close()
+
+
+except Exception as e:
+    print(e)
+
 #=============== ROUTES ==========================
-
-
 @app.route('/')
+def home():
+    # Sample query to fetch data from a table
+    return render_template('index.html', isLoggedIn=isLoggedIn, username=g_username)
+
+
+@app.route('/index.html')
 def index():
     # Sample query to fetch data from a table
     return render_template('index.html', isLoggedIn=isLoggedIn, username=g_username)
+
+@app.route('/aboutus.html')
+def aboutus():
+    # Sample query to fetch data from a table
+    return render_template('aboutus.html')
+
+@app.route('/community.html')
+def community():
+    # Sample query to fetch data from a table
+    return render_template('community.html')
 
 @app.route('/volunteer.html')
 def volunteer():
@@ -71,6 +113,41 @@ def carehomes():
         cursor.close()
         mysql.close()
     return render_template('donationcomplete.html')
+
+@app.route('/initialize-database')
+def initialize_database():
+    try:
+        # Check if the database already exists
+        cursor = mysql.cursor(buffered=True)
+        cursor.execute("SHOW DATABASES LIKE '{}'".format('harmonylink'))
+        database_exists = cursor.fetchone()
+        rows = cursor.fetchall()
+
+        if database_exists:
+            return render_template('result.html', status="Error", message="Database already exists.")
+
+        # Create the database
+        cursor.execute("CREATE DATABASE {}".format('harmonylink'))
+        rows = cursor.fetchall()
+
+        # Use the created database
+        cursor.execute("USE {}".format('harmonylink'))
+        rows = cursor.fetchall()
+
+        # Read the SQL statements from the backup file and execute them
+        with open(backup_file, 'r') as backup:
+            sql_statements = backup.read()
+            cursor.execute(sql_statements, multi=True)
+
+        mysql.commit()
+        cursor.close()
+
+
+        return render_template('result.html', status="Success", message="Database initialized successfully.")
+    except Exception as e:
+        return render_template('result.html', status="Error", message=str(e))
+
+    
 
 
 #=============== ROUTES ==========================
