@@ -1,34 +1,44 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from mysql.connector import Error
 from datetime import date
-
+import shutil
+import os
 import mysql.connector
 
 app = Flask(__name__)
 
 isLoggedIn = False
 g_username = '';
+backup_file = 'db.sql'
 
 
 # MySQL Configuration
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'orange'
-app.config['MYSQL_PASSWORD'] = 'orange'
-app.config['MYSQL_DB'] = 'harmonylink'
+db_config = {
+    'host': 'localhost',
+    'user': 'orange',
+    'password': 'orange',
+    'database': 'harmonylink',
+}
 
-mysql = mysql.connector.connect(
-    host=app.config['MYSQL_HOST'],
-    user=app.config['MYSQL_USER'],
-    password=app.config['MYSQL_PASSWORD'],
-    database=app.config['MYSQL_DB']
-)
+mysql = mysql.connector.connect(**db_config)
 
 #=============== ROUTES ==========================
 
 
-@app.route('/')
+@app.route('/index.html')
 def index():
     # Sample query to fetch data from a table
     return render_template('index.html', isLoggedIn=isLoggedIn, username=g_username)
+
+@app.route('/aboutus.html')
+def aboutus():
+    # Sample query to fetch data from a table
+    return render_template('aboutus.html')
+
+@app.route('/community.html')
+def community():
+    # Sample query to fetch data from a table
+    return render_template('community.html')
 
 @app.route('/volunteer.html')
 def volunteer():
@@ -71,6 +81,36 @@ def carehomes():
         cursor.close()
         mysql.close()
     return render_template('donationcomplete.html')
+
+@app.route('/initialize-database')
+def initialize_database():
+    try:
+        mysql = mysql.connector.connect(**db_config)
+        cursor = mysql.cursor()
+
+        cursor.execute("SHOW DATABASES LIKE '{}'".format(db_config['database']))
+        database_exists = cursor.fetchone()
+
+        if database_exists:
+            return jsonify({"status": "error", "message": "Database already exists."})
+
+        cursor.execute("CREATE DATABASE {}".format(db_config['database']))
+
+        cursor.execute("USE {}".format(db_config['database']))
+
+        with open(backup_file, 'r') as backup:
+            sql_statements = backup.read()
+            cursor.execute(sql_statements, multi=True)
+
+        mysql.commit()
+        mysql.close()
+
+        return jsonify({"status": "success", "message": "Database initialized successfully."})
+    except Error as e:
+        return jsonify({"status": "error", "message": str(e)})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
+    
 
 
 #=============== ROUTES ==========================
