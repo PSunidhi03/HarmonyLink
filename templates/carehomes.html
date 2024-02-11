@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
-        <link rel="stylesheet" href="../static/css/carehomes.css">
+    <link rel="stylesheet" href="../static/css/carehomes.css">
 </head>
 <body>
     <h1>Care Homes</h1>
+
+    <!-- Add a button to navigate to a specific route -->
+    <a href="{{ url_for('index') }}">
+        <button>Go to Route</button>
+    </a>
+
     <table border="1">
         <tr>
             <th>Name</th>
@@ -24,3 +30,4 @@
     </table>
 </body>
 </html>
+
