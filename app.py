@@ -33,10 +33,8 @@ try:
 
     else:
         cursor.execute("CREATE DATABASE {}".format(database_name))
-        rows = cursor.fetchall()
 
         cursor.execute("USE {}".format(database_name))
-        rows = cursor.fetchall()
 
         with open(backup_file, 'r') as backup:
             sql_statements = backup.read()
