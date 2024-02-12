@@ -1,1 +1,1 @@
-confirm_password
+database_name
