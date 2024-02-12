@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session 
 from datetime import date
 import mysql.connector
+from credentials import mysql_host, mysql_user, mysql_password
 
 app = Flask(__name__)
 
@@ -12,9 +13,9 @@ backup_file = 'db.sql'
 database_name = 'harmonylink'
 
 # MySQL Configuration
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'orange'
-app.config['MYSQL_PASSWORD'] = 'orange'
+app.config['MYSQL_HOST'] = mysql_host
+app.config['MYSQL_USER'] = mysql_user
+app.config['MYSQL_PASSWORD'] = mysql_password
 
 mysql = mysql.connector.connect(
     host=app.config['MYSQL_HOST'],
